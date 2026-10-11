@@ -18,7 +18,14 @@ jobs:
         with:
           gradle-version: 8.1.1
       - name: Build jar
-        run: gradle build --stacktrace
+        run: |
+          set -o pipefail
+          gradle build --stacktrace --console=plain 2>&1 | tee build.log
+      - name: Report build errors
+        if: failure()
+        run: |
+          msg=$(grep -E "error:|What went wrong|Execution failed|Could not|FAILED|Caused by|symbol:|location:" -A2 build.log | head -80 | sed 's/%/%25/g' | awk 'BEGIN{ORS="%0A"}{print}')
+          echo "::error title=Build failed::${msg}"
       - uses: actions/upload-artifact@v4
         with:
           name: claude-content-jar
