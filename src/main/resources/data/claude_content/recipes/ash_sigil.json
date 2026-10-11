@@ -1,0 +1,6 @@
+{ "type": "minecraft:crafting_shaped", "category": "misc",
+  "pattern": ["SOS","ONO","SOS"],
+  "key": { "S": { "item": "claude_content:cinder_scale" },
+           "O": { "item": "minecraft:obsidian" },
+           "N": { "item": "minecraft:nether_star" } },
+  "result": { "item": "claude_content:ash_sigil" } }

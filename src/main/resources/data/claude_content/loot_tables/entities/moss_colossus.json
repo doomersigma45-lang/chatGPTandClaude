@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [{ "type": "minecraft:item", "name": "claude_content:rooted_core" }]
+    },
+    {
+      "rolls": { "min": 0, "max": 1 },
+      "entries": [{ "type": "minecraft:item", "name": "claude_content:ancient_sprout" }]
+    }
+  ],
+  "random_sequence": "claude_content:entities/moss_colossus"
+}
